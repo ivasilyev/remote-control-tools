@@ -80,7 +80,6 @@ def parse_args():
     from argparse import ArgumentParser
     parser = ArgumentParser(
         description="Tool to execute program using RDP and Sysinternals' PsExec on a remote Windows server",
-        epilog="Both the program & PsExec binary must be located on the remote machine"
     )
     parser.add_argument("-s", "--server", metavar="<str>", required=True, type=str,
                         help="Server's NetBIOS name (not IP address!)")
@@ -89,9 +88,9 @@ def parse_args():
     parser.add_argument("-p", "--password", metavar="<str>", required=True, type=str,
                         help="Password to connect to the server")
     parser.add_argument("-c", "--psexec", metavar="<str>", required=True, type=str,
-                        help="PsExec executable including full path, e.g. 'C:\\Sysinternals\\PsExec.exe'")
+                        help="PsExec executable including full path, e.g. 'C:\\Sysinternals\\PsExec.exe' (on local PC)")
     parser.add_argument("-x", "--exe", metavar="<str>", required=True, type=str,
-                        help="Remote executable including full path, e.g. 'C:\\scripts\\startup.bat'")
+                        help="Remote executable including full path, e.g. 'C:\\scripts\\startup.bat' (on remote PC)")
     parser.add_argument("-w", "--wait", metavar="<int>", default=5, type=int,
                         help="Seconds to wait while RDP session is established")
     parser.add_argument("-l", "--logging", metavar="<int>", default=2, type=int, choices=list(range(0, 6)),
